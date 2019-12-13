@@ -1,0 +1,38 @@
+.card-news{
+    float: left;
+    width: 32%;
+    
+    margin: 2px 3px 3px 3px;
+}
+
+.bCrumb-sm{
+    margin: 3px 0px 0px 2px;
+    font-size: 13px;
+    padding: .25rem .5rem;
+    background-color: rgba(250, 250, 250, 0.02);
+}
+
+.nav-vert{
+    margin: 1rem 0;
+}
+
+.card-category{
+    margin: 5px 0px;
+}
+
+.card-category .card-footer{
+    font-size: .85em;
+    padding: .30rem 1.25rem;
+}
+
+nav.nav-vert a{
+    background-color:rgba(250, 250, 250, 0.932);
+}
+
+nav.nav-vert:nth-child(even) a{
+    background-color: red;
+}
+
+.bCrumb-sm li + li::before {
+    /* margin: 0 0.05em; */
+}
