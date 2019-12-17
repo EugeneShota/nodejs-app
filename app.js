@@ -2,8 +2,31 @@ const express = require("express");
 const fs = require("fs");
 const hbs = require("hbs");
 const expressHbs = require("express-handlebars");
+const MongoClient = require("mongodb").MongoClient;
 
 const app = express();
+
+const mongoClient = new MongoClient("mongodb://localhost:27017/", {
+    useNewUrlParser: true
+});
+
+mongoClient.connect((err, client) => {
+
+    const db = client.db("web-app");
+    const collection = db.collection("users");
+    let user = {
+        name: "admin",
+        age: 0
+    };
+    collection.insertOne(user, (err, result) => {
+        if (err) {
+            return console.log(err);
+        }
+        console.log(result.ops);
+        client.close();
+    });
+
+});
 
 app.engine("hbs", expressHbs({
     layoutsDir: "./public/views/layouts/",
